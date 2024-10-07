@@ -1,8 +1,8 @@
 # SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models
 
-[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/Ljyustc/SocraticLM/blob/main/LICENSE)
-[![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/Ljyustc/SocraticLM/LICENSE/DATA_LICENSE)
-[![Weight Diff License](https://img.shields.io/badge/Weight%20Diff%20License-CC%20By%20NC%204.0-yellow)](https://github.com/Ljyustc/SocraticLM/LICENSE/WEIGHT_DIFF_LICENSE)
+[![Code License](https://img.shields.io/badge/Code%20License-Apache_2.0-green.svg)](https://github.com/Ljyustc/SocraticLM/blob/main/LICENSE/LICENSE)
+[![Data License](https://img.shields.io/badge/Data%20License-CC%20By%20NC%204.0-red.svg)](https://github.com/Ljyustc/SocraticLM/blob/main/LICENSE/DATA_LICENSE)
+[![Weight Diff License](https://img.shields.io/badge/Weight%20Diff%20License-CC%20By%20NC%204.0-yellow)](https://github.com/Ljyustc/SocraticLM/blob/main/LICENSE/WEIGHT_DIFF_LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
 This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models" (NeurIPS'2024 Spotlight). The repo contains:
