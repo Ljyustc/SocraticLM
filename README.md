@@ -28,6 +28,7 @@ Run data_preprocess.py to split the dataset into training/validation/testing sub
 ```bash
 bash train_chat.sh
 ```
+
 - `train_file/validation_file/test_file`: the path to your training/validation/testing subset
 - `output_dir`: the path to save model checkpoint
 - `ptuning_checkpoint`: the path of an existing checkpoint
@@ -46,6 +47,7 @@ We fine-tune ChatGLM-8B with the following details:
 ```bash
 bash single_evaluate.sh
 ```
+
 - Choose one evaluation task from `[gsm8k-solving, mawps-solving, single-conversation, conversation]` for the `evaluation_task`
 - Modify the `validation_file` and `test_file` accordingly
 - The `customized_output_basedir` and `customized_output_dirname` together determine the output location for the evaluation results, which will be `{customized_output_basedir}/{customized_output_dirname}`.
