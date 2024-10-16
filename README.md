@@ -23,11 +23,12 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 ## Fine-tuning
 <strong> 1. Data Preprocessing </strong> 
 
-Run data_preprocess.py to split the dataset into training/validation/testing subsets.
+Run codes/data_preprocess.py to split the dataset into training/validation/testing subsets.
 
 <strong> 2. Run the training code </strong> 
 
 ```bash
+cd codes
 bash train_chat.sh
 ```
 
@@ -48,6 +49,7 @@ We fine-tune ChatGLM-8B with the following details:
  <strong> 3. Run the evaluation code </strong> 
 
 ```bash
+cd codes
 bash single_evaluate.sh
 ```
 
