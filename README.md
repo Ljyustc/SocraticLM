@@ -21,7 +21,7 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 - [`SocraTeach_multi.json`](data/SocraTeach_multi.json) is a dataset containing 35K multi-round "Teacher-Student" teaching dialogues. The keys of "SocraTeach_multi.json" are individual math problems, and the values include the corresponding "problem text", "analysis", "answer", "Step-by-step Guiding Questions", and "Teaching Dialogues". In each dialogue, "system" represents the Teacher agent's instructions, and "user" represents the Student agent's responses. The "user_type" field indicates which type of real-world student scenario the Student agent is simulating, with a total of six different types.
 
 ## Fine-tuning
-<summary> <strong> Data Preprocessing </strong> </summary>
+<strong> 1. Data Preprocessing </strong> 
 Run data_preprocess.py to split the dataset into training/validation/testing subsets.
 
 <summary> <strong> Run the training code </strong> </summary>
@@ -30,10 +30,10 @@ Run data_preprocess.py to split the dataset into training/validation/testing sub
 bash train_chat.sh
 ```
 
-- `train_file/validation_file/test_file`: the path to your training/validation/testing subset
-- `output_dir`: the path to save model checkpoint
-- `ptuning_checkpoint`: the path of an existing checkpoint
-- If you need to train on problem-solving data, please uncomment `train_problem_solving_file` and specify the path to the problem-solving data here.
+- `train_file/validation_file/test_file`: the path to your training/validation/testing subset.
+- `output_dir`: the path to save model checkpoint.
+- `ptuning_checkpoint`: the path of an existing checkpoint.
+- If you need to train on problem-solving data, please uncomment `train_problem_solving_file` and specify the path to the problem-solving data.
 
 We fine-tune ChatGLM-8B with the following details:
 
@@ -50,8 +50,8 @@ We fine-tune ChatGLM-8B with the following details:
 bash single_evaluate.sh
 ```
 
-- Choose one evaluation task from `[gsm8k-solving, mawps-solving, single-conversation, conversation]` for the `evaluation_task`
-- Modify the `validation_file` and `test_file` accordingly
+- Choose one evaluation task from `[gsm8k-solving, mawps-solving, single-conversation, conversation]` for the `evaluation_task`,
+- Modify the `validation_file` and `test_file` accordingly,
 - The `customized_output_basedir` and `customized_output_dirname` together determine the output location for the evaluation results, which will be `{customized_output_basedir}/{customized_output_dirname}`.
 - The `ptuning_checkpoint` parameter specifies the path where the model checkpoint to be tested is saved.
 
