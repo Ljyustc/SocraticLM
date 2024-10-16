@@ -25,6 +25,7 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 Run data_preprocess.py to split the dataset into training/validation/testing subsets.
 
 <summary> <strong> Run the training code </strong> </summary>
+
 ```bash
 bash train_chat.sh
 ```
@@ -44,6 +45,7 @@ We fine-tune ChatGLM-8B with the following details:
 | GPUs           | 2          |
 
 <summary> <strong> Run the evaluation code </strong> </summary>
+
 ```bash
 bash single_evaluate.sh
 ```
