@@ -2,7 +2,7 @@
 
 port=$(shuf -n 1 -i 10086-65535)
 PRE_SEQ_LEN=128
-export CUDA_VISIBLE_DEVICES=4
+export CUDA_VISIBLE_DEVICES=0
 # evaluation_task in ['gsm8k-solving', 'mawps-solving', 'single-conversation', 'conversation']
 evaluation_task="gsm8k-solving"
 validation_file="data/problem25_single_additional_test_jsonl.json"

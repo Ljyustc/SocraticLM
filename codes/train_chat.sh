@@ -4,7 +4,7 @@ PRE_SEQ_LEN=128
 LR=2e-2
 NUM_GPUS=2
 port=$(shuf -n 1 -i 10086-65535)
-export CUDA_VISIBLE_DEVICES=6,7
+export CUDA_VISIBLE_DEVICES=0,1
 
 OMP_NUM_THREADS=12 torchrun --nnodes=1 --master_port=${port} --nproc-per-node=$NUM_GPUS main.py \
     --do_train \
