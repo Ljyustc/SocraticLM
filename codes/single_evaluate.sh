@@ -1,15 +1,23 @@
 #!/bin/bash
 
+SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
 port=$(shuf -n 1 -i 10086-65535)
 PRE_SEQ_LEN=128
 export CUDA_VISIBLE_DEVICES=0
-# evaluation_task in ['gsm8k-solving', 'mawps-solving', 'single-conversation', 'conversation']
-evaluation_task="gsm8k-solving"
-validation_file="data/problem25_single_additional_test_jsonl.json"
-test_file="data/problem25_single_additional_test_jsonl.json"
-customized_output_basedir="runs/chatglm3-6b-socrates-problem-solving-0.25-eval"
-customized_output_dirname="problem25_single_additional_test"
-ptuning_checkpoint="runs/chatglm3-6b-socrates-problem-solving-128-2e-2/2024-05-11_15:04:39/checkpoint-764"
+# evaluation_task in ['conversation', 'single-conversation', 'gsm8k-solving', 'mawps-solving', ]
+evaluation_task="conversation"
+validation_file="$SCRIPT_DIR/../data/data_split/valid_dialogue.jsonl"
+test_file="$SCRIPT_DIR/../data/data_split/test_dialogue.jsonl"
+customized_output_basedir="runs/SocraticLM-eval"
+customized_output_dirname="conversation"
+ptuning_checkpoint="runs/SocraticLM-conversation-checkpoint"
+
+echo "Using file path: $test_file"
+if [ -f "$test_file" ]; then
+  echo "Test file exists!"
+else
+  echo "Test file does not exist!"
+fi
 
 if [[ -n $customized_output_basedir ]]
 then
@@ -17,7 +25,7 @@ then
 else
     if [[ -n $ptuning_checkpoint ]]
     then
-        output_basedir="runs/chatglm3-6b-socrates-eval"
+        output_basedir="runs/SocraticLM-eval"
     else
         output_basedir="runs/chatglm3-6b-eval"
     fi
@@ -53,8 +61,8 @@ else
         history_column="history"
     elif [[ $evaluation_task == "conversation" ]]
     then
-        validation_file="data/valid_dialogue_jsonl.json"
-        test_file="data/test_dialogue_jsonl.json"
+        validation_file="$SCRIPT_DIR/../data/data_split/valid_dialogue.jsonl"
+        test_file="$SCRIPT_DIR/../data/data_split/test_dialogue.jsonl"
         prompt_column="prompt"
         response_column="response"
         history_column="history"
@@ -98,17 +106,11 @@ echo "Customized Options: ${options}"
 torchrun --master-port=${port} main.py \
     --do_predict \
     --overwrite_cache \
-    --model_name_or_path /data1/share/edunlp/chatglm-6b-v3 \
+    --model_name_or_path /data2/jyliu/chatglm3-6b \
     --overwrite_output_dir \
     --max_source_length 1024 \
     --max_target_length 256 \
     --per_device_eval_batch_size 4 \
     ${options} \
     --predict_with_generate
-
-# export CUDA_VISIBLE_DEVICES=1
-# dataset_name=gsm8k
-
-# ptuning_checkpoint="runs/chatglm3-6b-socrates-problem-solving-128-2e-2/2024-05-10_11:11:07/checkpoint-1464"
-# evaluation_task="gsm8k-solving"
 

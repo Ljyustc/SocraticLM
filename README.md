@@ -64,10 +64,10 @@ cd codes
 bash single_evaluate.sh
 ```
 
-- Choose one evaluation task from `[gsm8k-solving, mawps-solving, single-conversation, conversation]` for the `evaluation_task`,
-- Modify the `validation_file` and `test_file` accordingly,
+- Choose one evaluation task from `[conversation, single-conversation, gsm8k-solving, mawps-solving]` for the `evaluation_task`.
+- Modify the `validation_file` and `test_file` accordingly.
 - The `customized_output_basedir` and `customized_output_dirname` together determine the output location for the evaluation results, which will be `{customized_output_basedir}/{customized_output_dirname}`.
-- The `ptuning_checkpoint` parameter specifies the path where the model checkpoint to be tested is saved.
+- The `ptuning_checkpoint` parameter specifies the path where the model checkpoint to be tested is saved. If you want to test the original results of ChatGLM3-6b, please comment out this variable.
 
 ## Recovering SocraticLM Weights
 
