@@ -1,8 +1,19 @@
 import json
 import random
 import os
+import tqdm
+from argparse import ArgumentParser
 
-with open(r"path_to_SocraTeach_multi.json", 'r', encoding='utf-8') as f:
+def get_args():
+    parser = ArgumentParser(description='Data preprocess')
+    parser.add_argument('--path', type=str, default='data', help='Path to the SocraTeach dataset')
+    parser.add_argument('--split_fold', type=str, default='data/data_split', help='Folder path to save the split train/valid/test subsets')
+    args = parser.parse_args()
+    return args
+args = get_args()
+os.makedirs(args.split_fold, exist_ok=True)
+
+with open(args.path, 'r', encoding='utf-8') as f:
     dialog_data = json.load(f)
 
 all_data = {}
@@ -45,20 +56,21 @@ for i in keys[2000:]:
     if filter_i not in skip_ids:
         train_data[i] = all_data[i]
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
-data_split_dir = os.path.join(script_dir, '..', 'data', 'data_split')
-data_split_dir = os.path.abspath(data_split_dir)
-os.makedirs(data_split_dir, exist_ok=True)
+train_file_path = os.path.join(args.split_fold, "train_dialogue.jsonl")  
+valid_file_path = os.path.join(args.split_fold, "valid_dialogue.jsonl") 
+test_file_path = os.path.join(args.split_fold, "test_dialogue.jsonl") 
 
-train_file_path = os.path.join(data_split_dir, "train_dialogue.json")  
-valid_file_path = os.path.join(data_split_dir, "valid_dialogue.json") 
-test_file_path = os.path.join(data_split_dir, "test_dialogue.json") 
+train_datal = [{"id": key, **val} for key, val in train_data.items()]
+with open(train_file_path, "w") as f:
+    for item in tqdm.tqdm(train_datal, ncols=128):
+        f.write(json.dumps(item) + "\n")
 
-with open(train_file_path, 'w', encoding='utf-8') as f:
-    json.dump(train_data, f, indent=4)
+valid_datal = [{"id": key, **val} for key, val in valid_data.items()]
+with open(valid_file_path, "w") as f:
+    for item in tqdm.tqdm(valid_datal, ncols=128):
+        f.write(json.dumps(item) + "\n")
 
-with open(valid_file_path, 'w', encoding='utf-8') as f:
-    json.dump(valid_data, f, indent=4)
-
-with open(test_file_path, 'w', encoding='utf-8') as f:
-    json.dump(test_data, f, indent=4)
+test_datal = [{"id": key, **val} for key, val in test_data.items()]
+with open(test_file_path, "w") as f:
+    for item in tqdm.tqdm(test_datal, ncols=128):
+        f.write(json.dumps(item) + "\n")

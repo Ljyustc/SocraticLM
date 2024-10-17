@@ -23,12 +23,15 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 ## Fine-tuning
 <strong> 1. Data Preprocessing </strong> 
 
-Split the dataset into training/validation/testing subsets.
+Split the dataset into train/valid/test subsets.
 
 ```bash
 cd codes
-python data_preprocess.py
+python data_preprocess.py --path ../data/SocraTeach_multi.json --split_fold ../data/data_split
 ```
+
+- `path`: path to the SocraTeach dataset.
+- `split_fold`: folder path to save the split train/valid/test subsets.
 
 <strong> 2. Run the training code </strong> 
 
@@ -37,19 +40,22 @@ cd codes
 bash train_chat.sh
 ```
 
-- `train_file/validation_file/test_file`: the path to your training/validation/testing subset.
-- `output_dir`: the path to save model checkpoint.
-- `ptuning_checkpoint`: the path of an existing checkpoint.
-- If you need to train on problem-solving data, please uncomment `train_problem_solving_file` and specify the path to the problem-solving data.
+- `train_file/validation_file/test_file`: path to your train/valid/test subsets.
+- `output_dir`: path to save model checkpoint.
+- `model_name_or_path`: path to the original ChatGLM-6b.
+- If you need to fine-tune on an existing checkpoint, please uncomment `ptuning_checkpoint` and specify the path to the checkpoint.
+- If you need to fine-tune on problem-solving data, please uncomment `train_problem_solving_file` and specify the path to the problem-solving data.
 
-We fine-tune ChatGLM-8B with the following details:
+We fine-tune ChatGLM-6b with the following details:
 
-| Details        | ChatGLM-8B |
+| Details        | ChatGLM-6b |
 |----------------|------------|
 | Batch size     | 64         |
 | Learning rate  | 0.02       |
 | Epochs         | 2          |
 | GPUs           | 2          |
+
+ <strong>Note</strong>: Our code is modified based on the ChatGLM2 codebase (https://github.com/THUDM/ChatGLM2-6B/tree/main/ptuning). After downloading the ChatGLM3-6b weights (https://huggingface.co/THUDM/chatglm3-6b/tree/main), please replace the tokenization_chatglm.py file with the one from our repository.
 
  <strong> 3. Run the evaluation code </strong> 
 
