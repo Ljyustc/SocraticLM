@@ -42,20 +42,20 @@ bash train_chat.sh
 
 - `train_file/validation_file/test_file`: path to your train/valid/test subsets.
 - `output_dir`: path to save model checkpoint.
-- `model_name_or_path`: path to the original ChatGLM-6b.
+- `model_name_or_path`: path to the original ChatGLM3-6b weights.
 - If you need to fine-tune on an existing checkpoint, please uncomment `ptuning_checkpoint` and specify the path to the checkpoint.
 - If you need to fine-tune on problem-solving data, please uncomment `train_problem_solving_file` and specify the path to the problem-solving data.
 
-We fine-tune ChatGLM-6b with the following details:
+We fine-tune ChatGLM3-6b with the following details:
 
-| Details        | ChatGLM-6b |
+| Details        | ChatGLM3-6b |
 |----------------|------------|
 | Batch size     | 64         |
 | Learning rate  | 0.02       |
 | Epochs         | 2          |
 | GPUs           | 2          |
 
- <strong>Note</strong>: Our code is modified based on the ChatGLM2 codebase (https://github.com/THUDM/ChatGLM2-6B/tree/main/ptuning). After downloading the ChatGLM3-6b weights (https://huggingface.co/THUDM/chatglm3-6b/tree/main), please replace the tokenization_chatglm.py file with the one from our repository.
+ <strong>Note</strong>: Our code is modified based on the ChatGLM2-6b codebase (https://github.com/THUDM/ChatGLM2-6B/tree/main/ptuning). After downloading the ChatGLM3-6b weights (https://huggingface.co/THUDM/chatglm3-6b/tree/main), please replace the tokenization_chatglm.py file with the one from [`our repository`](code/tokenization_chatglm.py).
 
  <strong> 3. Run the evaluation code </strong> 
 
