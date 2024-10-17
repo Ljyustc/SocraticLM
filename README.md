@@ -50,12 +50,12 @@ We fine-tune ChatGLM3-6b with the following details:
 
 | Details        | ChatGLM3-6b |
 |----------------|------------|
-| Batch size     | 64         |
-| Learning rate  | 0.02       |
-| Epochs         | 2          |
-| GPUs           | 2          |
+| Batch size     |     64     |
+| Learning rate  |    0.02    |
+| Epochs         |     2      |
+| GPUs           |     2      |
 
- <strong>Note</strong>: Our code is modified based on the ChatGLM2-6b codebase (https://github.com/THUDM/ChatGLM2-6B/tree/main/ptuning). After downloading the ChatGLM3-6b weights (https://huggingface.co/THUDM/chatglm3-6b/tree/main), please replace the tokenization_chatglm.py file with the one from [`our repository`](codes/tokenization_chatglm.py).
+ <strong>Note</strong>: Our code is modified based on the ChatGLM2-6b repository (https://github.com/THUDM/ChatGLM2-6B/tree/main/ptuning). After downloading the ChatGLM3-6b weights (https://huggingface.co/THUDM/chatglm3-6b/tree/main), please replace the tokenization_chatglm.py file with the one from [`our repository`](codes/tokenization_chatglm.py).
 
  <strong> 3. Run the evaluation code </strong> 
 
