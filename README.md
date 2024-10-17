@@ -8,8 +8,8 @@
 This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models" (NeurIPS'2024 Spotlight). The repo contains:
 
 - The [SocraTeach dataset](#socrateach-dataset) used for fine-tuning SocraticLM.
-- The code for [fine-tuning SocraticLM](#fine-tuning).
-- The code for [recovering SocraticLM weights from our released weight diff](#recovering-socraticlm-weights).
+- The code for [fine-tuning ChatGLM to get SocraticLM](#fine-tuning).
+- The code for [recovering SocraticLM weights from our released link](#recovering-socraticlm-weights).
 
 ## Environment
 * OS: CentOS Linux release 7.7.1908
@@ -23,7 +23,12 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 ## Fine-tuning
 <strong> 1. Data Preprocessing </strong> 
 
-Run codes/data_preprocess.py to split the dataset into training/validation/testing subsets.
+Split the dataset into training/validation/testing subsets.
+
+```bash
+cd codes
+python data_preprocess.py
+```
 
 <strong> 2. Run the training code </strong> 
 
