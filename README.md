@@ -15,7 +15,7 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 * OS: CentOS Linux release 7.7.1908
 * CPU: 15 vCPU Intel(R) Xeon(R) Platinum 8358P CPU @ 2.60GHz
 * GPU: NVIDIA RTX 3090 GPUs
-* CUDA: 11.1
+* CUDA: 12.1
 
 ## SocraTeach Dataset
 - [`SocraTeach_multi.json`](data/SocraTeach_multi.json) is a dataset containing 35K multi-round "Teacher-Student" teaching dialogues. The keys of "SocraTeach_multi.json" are individual math problems, and the values include the corresponding "problem text", "analysis", "answer", "Step-by-step Guiding Questions", and "Teaching Dialogues". In each dialogue, "system" represents the Teacher agent's instructions, and "user" represents the Student agent's responses. The "user_type" field indicates which type of real-world student scenario the Student agent is simulating, with a total of six different types.
@@ -24,6 +24,12 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 <strong>Note</strong>: We are continuously polishing and updating our datasets, and we welcome researchers to join us in this effort. If you find any issues with the data, we highly encourage you to submit an issue or contact us via emailing jy251198@mail.ustc.edu.cn. Your feedback is invaluable in helping us improve the datasets further.
 
 ## Fine-tuning
+<strong> 0. Environment Preparation </strong> 
+
+```bash
+pip install -r requirements.txt
+```
+
 <strong> 1. Data Preprocessing </strong> 
 
 Split the dataset into train/valid/test subsets.
