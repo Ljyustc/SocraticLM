@@ -10,6 +10,8 @@ This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching
 - The [SocraTeach dataset](#socrateach-dataset) used for fine-tuning SocraticLM.
 - The code for [fine-tuning ChatGLM to get SocraticLM](#fine-tuning).
 
+An enhanced implementation of our SocraticLM based on [Qwen2.5-Math-7B-Instruct](https://github.com/QwenLM/Qwen2.5-Math) can be found in our Huggingface repo [CogBase/SocraticLM](https://huggingface.co/CogBase-USTC/SocraticLM).
+
 ## Environment
 * OS: CentOS Linux release 7.7.1908
 * CPU: 15 vCPU Intel(R) Xeon(R) Platinum 8358P CPU @ 2.60GHz
