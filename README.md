@@ -79,6 +79,16 @@ bash single_evaluate.sh
 - The `customized_output_basedir` and `customized_output_dirname` together determine the output location for the evaluation results, which will be `{customized_output_basedir}/{customized_output_dirname}`.
 - The `ptuning_checkpoint` parameter specifies the path where the model checkpoint to be tested is saved. If you want to test the original results of ChatGLM3-6b, please comment out this variable.
 
+## Reference
+If you find this repository helpful, please cite our paper.
+```
+@inproceedings{liusocraticlm,
+  title={SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models},
+  author={Liu, Jiayu and Huang, Zhenya and Xiao, Tong and Sha, Jing and Wu, Jinze and Liu, Qi and Wang, Shijin and Chen, Enhong},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
+  year={2024}
+}
+```
 
 
 
