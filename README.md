@@ -5,7 +5,7 @@
 [![Weight Diff License](https://img.shields.io/badge/Weight%20Diff%20License-CC%20By%20NC%204.0-yellow)](https://github.com/Ljyustc/SocraticLM/blob/main/LICENSE/WEIGHT_DIFF_LICENSE)
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
 
-This is the repo for paper "SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models" (NeurIPS'2024 Spotlight). The repo contains:
+This is the repo for paper ["SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models" (NeurIPS'2024 Spotlight)](https://proceedings.neurips.cc/paper_files/paper/2024/file/9bae399d1f34b8650351c1bd3692aeae-Paper-Conference.pdf). The repo contains:
 
 - The [SocraTeach dataset](#socrateach-dataset) used for fine-tuning SocraticLM.
 - The code for [fine-tuning ChatGLM to get SocraticLM](#fine-tuning).
