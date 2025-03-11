@@ -12,6 +12,19 @@ This is the repo for paper ["SocraticLM: Exploring Socratic Personalized Teachin
 
 An enhanced implementation of our SocraticLM based on [Qwen2.5-Math-7B-Instruct](https://github.com/QwenLM/Qwen2.5-Math) can be found in our Huggingface repo [CogBase/SocraticLM](https://huggingface.co/CogBase-USTC/SocraticLM).
 
+## Reference
+If you find this repository helpful, please cite our paper.
+```
+@article{liu2024socraticlm,
+  title={SocraticLM: exploring socratic personalized teaching with large language models},
+  author={Liu, Jiayu and Huang, Zhenya and Xiao, Tong and Sha, Jing and Wu, Jinze and Liu, Qi and Wang, Shijin and Chen, Enhong},
+  journal={Advances in Neural Information Processing Systems},
+  volume={37},
+  pages={85693--85721},
+  year={2024}
+}
+```
+
 ## Environment
 * OS: CentOS Linux release 7.7.1908
 * CPU: 15 vCPU Intel(R) Xeon(R) Platinum 8358P CPU @ 2.60GHz
@@ -79,16 +92,6 @@ bash single_evaluate.sh
 - The `customized_output_basedir` and `customized_output_dirname` together determine the output location for the evaluation results, which will be `{customized_output_basedir}/{customized_output_dirname}`.
 - The `ptuning_checkpoint` parameter specifies the path where the model checkpoint to be tested is saved. If you want to test the original results of ChatGLM3-6b, please comment out this variable.
 
-## Reference
-If you find this repository helpful, please cite our paper.
-```
-@inproceedings{liusocraticlm,
-  title={SocraticLM: Exploring Socratic Personalized Teaching with Large Language Models},
-  author={Liu, Jiayu and Huang, Zhenya and Xiao, Tong and Sha, Jing and Wu, Jinze and Liu, Qi and Wang, Shijin and Chen, Enhong},
-  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems},
-  year={2024}
-}
-```
 
 
 
